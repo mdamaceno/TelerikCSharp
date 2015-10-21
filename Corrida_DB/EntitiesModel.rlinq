@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DomainModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="2.0.0.0" name="CorridaModel" namespace="Corrida_DB" showPropertiesCompartment="true" xmlns="http://www.telerik.com/ORM">
+  <orm:orm name="CorridaModel" backend="mysql" xmlns:orm="http://tempuri.org/ORM">
+    <orm:namespace name="Corrida_DB" default="true">
+      <orm:class name="Local" uniqueId="67ecafed-5bf5-4fd6-b574-87803b255532">
+        <orm:table name="local" />
+        <orm:identity>
+          <orm:key-generator name="autoinc">
+            <orm:key-generator-member property-name="Id" />
+          </orm:key-generator>
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_id" property="Id" behavior="readwrite" uniqueId="ec55f3d1-f12a-4a5e-ae78-e0fc28a0456b" type="System.Int32">
+          <orm:column name="id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_cidade" property="Cidade" behavior="readwrite" uniqueId="69349dce-a3d5-44af-adb5-9693c692d2ba" type="System.String">
+          <orm:column name="Cidade" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_uf" property="Uf" behavior="readwrite" uniqueId="955ba24e-cb6a-4546-a296-5277e0fb5579" type="System.String">
+          <orm:column name="Uf" sql-type="nvarchar" nullable="true" length="2" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_corridas" property="Corridas" behavior="readwrite" uniqueId="624cad1d-0577-4f62-b380-13971c5ae25e" type="Corrida_DB.Corrida">
+          <orm:collection element-class="Corrida_DB.Corrida" inverse-field="_local" order-by="" uniqueId="c86feef5-c56d-4810-8908-d6850bd00ae2" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Corrida" uniqueId="35fbca06-4cb2-493a-8eb6-14796d797f51">
+        <orm:table name="corrida" />
+        <orm:identity>
+          <orm:key-generator name="autoinc">
+            <orm:key-generator-member property-name="Id" />
+          </orm:key-generator>
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_id" property="Id" behavior="readwrite" uniqueId="d2011f8f-3103-4f3b-8abc-65e74d46dbf0" type="System.Int32">
+          <orm:column name="id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_nome" property="Nome" behavior="readwrite" uniqueId="c66d7f81-0e48-4345-9350-5ffb30ebcd0f" type="System.String">
+          <orm:column name="nome" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_valor" property="Valor" behavior="readwrite" uniqueId="a6431b83-9e1b-4b21-901a-94ddd99829ab" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="valor" sql-type="decimal" nullable="true" length="15" scale="2" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_distancia" property="Distancia" behavior="readwrite" uniqueId="92e34601-74f5-4260-88bf-a9aa97f5a9b1" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="distancia" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_dataCorrida" property="DataCorrida" behavior="readwrite" uniqueId="9d54dcda-f8df-4502-9c67-ffb3d6ae13f3" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="dataCorrida" sql-type="date" nullable="true" length="0" scale="0" ado-type="Date" />
+        </orm:field>
+        <orm:field name="_id_Local" property="Id_Local" behavior="readwrite" uniqueId="9a502d09-1735-48b3-a47c-6d589f914679" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="id_Local" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_local" property="Local" behavior="readwrite" uniqueId="a111470d-9c74-401d-9794-53287ea33b29" type="Corrida_DB.Local">
+          <orm:reference uniqueId="c86feef5-c56d-4810-8908-d6850bd00ae2" association-name="CorridaHasLocal">
+            <orm:sharedfield name="_id_Local" target-class="Corrida_DB.Local" target-field="_id" />
+            <orm:constraint name="fk_corrida_local" delete-action="cascade" destination-table="local" />
+          </orm:reference>
+        </orm:field>
+        <orm:index name="fk_corrida_local_idx">
+          <orm:columnMapping>
+            <orm:column name="id_Local" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:class>
+    </orm:namespace>
+    <orm:schema schema="">
+      <orm:table name="local">
+        <orm:column name="id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="Cidade" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="Uf" sql-type="nvarchar" nullable="true" length="2" scale="0" ado-type="UnicodeStringVariableLength" />
+      </orm:table>
+      <orm:table name="corrida">
+        <orm:column name="id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="nome" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="valor" sql-type="decimal" nullable="true" length="15" scale="2" ado-type="Decimal" />
+        <orm:column name="distancia" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="dataCorrida" sql-type="date" nullable="true" length="0" scale="0" ado-type="Date" />
+        <orm:column name="id_Local" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:index name="fk_corrida_local_idx">
+          <orm:columnMapping>
+            <orm:column name="id_Local" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:constraint name="fk_corrida_local" delete-action="cascade" destination-table="local">
+          <orm:column name="id_Local" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
+      </orm:table>
+    </orm:schema>
+    <orm:relational-naming-settings>
+      <orm:source-strategy>Property</orm:source-strategy>
+      <orm:remove-camel-case>False</orm:remove-camel-case>
+    </orm:relational-naming-settings>
+  </orm:orm>
+  <ModelSettings xmlns="">
+    <AppConfigConnectionPropertyName>Connection</AppConfigConnectionPropertyName>
+    <AppConfigConnectionString>persist security info=false;server=localhost;database=calendariocorridas;uid=root;pwd=aluno</AppConfigConnectionString>
+    <NamingSettings>
+      <ClassRules>
+        <CaseMode>PascalCase</CaseMode>
+        <PluralizationMode>Singularize</PluralizationMode>
+      </ClassRules>
+      <FieldRules>
+        <AddPrefix>_</AddPrefix>
+        <CaseMode>CamelCase</CaseMode>
+      </FieldRules>
+      <PropertyRules>
+        <CaseMode>PascalCase</CaseMode>
+      </PropertyRules>
+      <NavigationPropertyRules />
+    </NamingSettings>
+    <CodeGenerationSettings>
+      <MappingDefinitionType>Xml</MappingDefinitionType>
+    </CodeGenerationSettings>
+    <SchemaUpdateSettings>
+      <ExecuteScript>true</ExecuteScript>
+      <DeploymentProject>Corrida_DB</DeploymentProject>
+      <UpdateDatabaseOperation>Migrate</UpdateDatabaseOperation>
+    </SchemaUpdateSettings>
+    <BackendConfigurationSettings>
+      <BackendConfiguration>
+        <Backend>MySql</Backend>
+        <ProviderName>MySql.Data.MySqlClient</ProviderName>
+      </BackendConfiguration>
+    </BackendConfigurationSettings>
+  </ModelSettings>
+  <Types>
+    <DomainClass Id="67ecafed-5bf5-4fd6-b574-87803b255532" name="Local" namespace="Corrida_DB" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="Id">
+      <Property Id="ec55f3d1-f12a-4a5e-ae78-e0fc28a0456b" name="Id" type="Int32" label="Id : Int32" kind="Persistent" identity="true" fieldName="_id" />
+      <Property Id="69349dce-a3d5-44af-adb5-9693c692d2ba" name="Cidade" label="Cidade : String" kind="Persistent" fieldName="_cidade" />
+      <Property Id="955ba24e-cb6a-4546-a296-5277e0fb5579" name="Uf" label="Uf : String" kind="Persistent" fieldName="_uf" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="bca95d96-a6dc-4315-bcd5-2d84ff71e3ce">
+          <NavigationalProperty Id="624cad1d-0577-4f62-b380-13971c5ae25e" name="Corridas" type="IList&lt;Corrida&gt;" label="Corridas : IList&lt;Corrida&gt;" nullable="true" kind="Persistent" fieldName="_corridas" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="35fbca06-4cb2-493a-8eb6-14796d797f51" name="Corrida" namespace="Corrida_DB" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="Id">
+      <Property Id="d2011f8f-3103-4f3b-8abc-65e74d46dbf0" name="Id" type="Int32" label="Id : Int32" kind="Persistent" identity="true" fieldName="_id" />
+      <Property Id="9d54dcda-f8df-4502-9c67-ffb3d6ae13f3" name="DataCorrida" type="DateTime" label="DataCorrida : DateTime" nullable="true" kind="Persistent" fieldName="_dataCorrida" />
+      <Property Id="92e34601-74f5-4260-88bf-a9aa97f5a9b1" name="Distancia" type="Int32" label="Distancia : Int32" nullable="true" kind="Persistent" fieldName="_distancia" />
+      <Property Id="9a502d09-1735-48b3-a47c-6d589f914679" name="Id_Local" type="Int32" label="Id_Local : Int32" nullable="true" kind="Persistent" fieldName="_id_Local" />
+      <Property Id="c66d7f81-0e48-4345-9350-5ffb30ebcd0f" name="Nome" label="Nome : String" kind="Persistent" fieldName="_nome" />
+      <Property Id="a6431b83-9e1b-4b21-901a-94ddd99829ab" name="Valor" type="Decimal" label="Valor : Decimal" nullable="true" kind="Persistent" fieldName="_valor" />
+      <AssociationTargets>
+        <Association Id="c86feef5-c56d-4810-8908-d6850bd00ae2" SourceMultiplicity="ZeroOne" name="CorridaHasLocal">
+          <DomainClassMoniker name="/CorridaModel/Local" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="dfb97d69-fd69-41cb-9709-a5267414b823">
+              <NavigationalPropertyMoniker name="/CorridaModel/Local/Corridas" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="eb6afc79-7d08-4017-8b87-81f8e632954f">
+              <NavigationalPropertyMoniker name="/CorridaModel/Corrida/Local" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="dd81da02-dc81-4084-a9c0-f6eafc1f975a">
+          <NavigationalProperty Id="a111470d-9c74-401d-9794-53287ea33b29" name="Local" type="Local" label="Local : Local" nullable="true" kind="Persistent" fieldName="_local" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+  </Types>
+  <domainContext>
+    <domainModelHasDomainContext Id="1a3d7621-25b1-4e42-ad57-fde6a20f3966">
+      <domainContainer name="CorridaModel" namespace="Corrida_DB" showPropertiesCompartment="true">
+        <entitySetProperty name="Locals" namespace="Corrida_DB" type="Local" label="Locals : IQueryable&lt;Corrida_DB.Local&gt;" />
+        <entitySetProperty name="Corridas" namespace="Corrida_DB" type="Corrida" label="Corridas : IQueryable&lt;Corrida_DB.Corrida&gt;" />
+      </domainContainer>
+    </domainModelHasDomainContext>
+  </domainContext>
+</DomainModel>

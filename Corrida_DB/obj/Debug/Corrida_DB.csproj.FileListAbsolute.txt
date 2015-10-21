@@ -1,0 +1,11 @@
+D:\Marco\Corrida\Corrida_DB\bin\Debug\Corrida_DB.dll.config
+D:\Marco\Corrida\Corrida_DB\bin\Debug\Corrida_DB.dll
+D:\Marco\Corrida\Corrida_DB\bin\Debug\Corrida_DB.pdb
+D:\Marco\Corrida\Corrida_DB\bin\Debug\Telerik.OpenAccess.35.Extensions.dll
+D:\Marco\Corrida\Corrida_DB\bin\Debug\Telerik.OpenAccess.dll
+D:\Marco\Corrida\Corrida_DB\bin\Debug\Telerik.OpenAccess.xml
+D:\Marco\Corrida\Corrida_DB\bin\Debug\Telerik.OpenAccess.35.Extensions.xml
+D:\Marco\Corrida\Corrida_DB\obj\Debug\Corrida_DB.csprojResolveAssemblyReference.cache
+D:\Marco\Corrida\Corrida_DB\obj\Debug\Corrida_DB.dll
+D:\Marco\Corrida\Corrida_DB\obj\Debug\Corrida_DB.pdb
+D:\Marco\Corrida\Corrida_DB\bin\Debug\MySql.Data.dll

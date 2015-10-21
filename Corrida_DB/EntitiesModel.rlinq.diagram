@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDiagrams>
+  <entityDiagramsDiagram dslVersion="2.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="CorridaModel" isDefault="true">
+    <DomainModelMoniker name="/CorridaModel" />
+    <nestedChildShapes>
+      <classShape Id="0af9384b-42ad-4a64-9a81-13fec64e38e9" absoluteBounds="3, 1.25, 1.5, 2.1473746744791673">
+        <DomainClassMoniker name="/CorridaModel/Local" />
+        <nestedChildShapes>
+          <elementListCompartment Id="bb0d195d-7fa0-4d55-a65c-9c9f499a524c" absoluteBounds="3.015, 1.76, 1.4700000000000002, 0.8262939453125" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="d0921a39-1cc4-461c-997f-7b0fcca9b76d" absoluteBounds="3.015, 2.5962939453125, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="a13cf4e2-fdc4-43aa-a3d7-1c592745b0c0" absoluteBounds="3.015, 2.8556835937500002, 1.4700000000000002, 0.44169108072916674" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
+        </nestedChildShapes>
+      </classShape>
+      <classShape Id="f1314877-66e2-4fb6-93ad-0ce834dd3767" absoluteBounds="0.75, 1, 1.5, 2.724278971354166">
+        <DomainClassMoniker name="/CorridaModel/Corrida" />
+        <nestedChildShapes>
+          <elementListCompartment Id="e7dc1068-a3c0-4322-b833-1d38d1a8c4a5" absoluteBounds="0.765, 1.5099999999999998, 1.4700000000000002, 1.4031982421875" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="7f638c59-78d0-4edf-b800-09d7b39492dd" absoluteBounds="0.765, 2.9231982421875, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="046a464a-bbec-4251-a1da-74d96f5f0711" absoluteBounds="0.765, 3.182587890625, 1.4700000000000002, 0.44169108072916652" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
+        </nestedChildShapes>
+      </classShape>
+      <associationConnector edgePoints="[(2.25 : 2.32368733723958); (3 : 2.32368733723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+        <AssociationMoniker Id="c86feef5-c56d-4810-8908-d6850bd00ae2" />
+        <relativeChildShapes />
+        <nodes>
+          <classShapeMoniker Id="f1314877-66e2-4fb6-93ad-0ce834dd3767" />
+          <classShapeMoniker Id="0af9384b-42ad-4a64-9a81-13fec64e38e9" />
+        </nodes>
+      </associationConnector>
+    </nestedChildShapes>
+  </entityDiagramsDiagram>
+</EntityDiagrams>
